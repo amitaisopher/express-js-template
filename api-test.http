@@ -1,2 +1,17 @@
 ### Test Health Endpoint
 GET http://localhost:3000/health HTTP/1.1
+
+### Get Tasks
+GET http://localhost:3000/v1/tasks HTTP/1.1
+
+### Get Task by ID
+GET http://localhost:3000/v1/tasks/1 HTTP/1.1
+
+### Get projects
+GET http://localhost:3000/v1/projects HTTP/1.1
+
+### Get project by ID
+GET http://localhost:3000/v1/projects/1 HTTP/1.1
+
+### Get project's tasks 
+GET http://localhost:3000/v1/projects/1/tasks HTTP/1.1

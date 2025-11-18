@@ -1,12 +1,22 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.0.5/schema.json",
-  "formatter": {
-    "enabled": true
-  },
-  "linter": {
-    "enabled": true
-  },
-  "assist": {
-    "enabled": false
-  }
+	"$schema": "https://biomejs.dev/schemas/2.3.6/schema.json",
+	"formatter": {
+		"enabled": true
+	},
+	"linter": {
+		"enabled": true,
+		"includes": ["**", "!src/tests/**"]
+	},
+	"assist": {
+		"enabled": false
+	},
+	"files": {
+		"includes": [
+			"src/**/*.js",
+			"src/**/*.ts",
+			"!**/*.min.js",
+			"!**/*.generated.js",
+			"!!**/dist"
+		]
+	}
 }
