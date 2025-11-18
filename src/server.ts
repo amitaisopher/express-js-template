@@ -1,12 +1,23 @@
-import express from "express";
+import express, { Request, Response } from "express";
+import morgan from "morgan";
+import cors from "cors";
+import config from "./core/config";
+import v1 from "./routes/v1";
 
-const app = express();
+export const createServer = () => {
+	const app = express();
+	app
+		.disable("x-powered-by")
+		.use(morgan("dev"))
+		.use(express.urlencoded({ extended: true }))
+		.use(express.json())
+		.use(cors());
 
-app.get("/", (req, res) => {
-	res.send("Hello, world!");
-});
+	app.get("/health", (req, res) => {
+		res.json({ ok: true, environment: config.env });
+	});
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-	console.log(`Server is running on port ${PORT}`);
-});
+	app.use("/v1", v1);
+
+	return app;
+};
